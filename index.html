@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="my">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>အဆုံးရှုံးမခံနိုင်လောက်အောင် ချစ်ရပါသော မမအတွက် တောင်းပန်စာ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg1: #2b1030;
+            --bg2: #5a1f4a;
+            --rose: #ff6b8b;
+            --soft: #ffd6e0;
+            --gold: #ffd98a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Noto Sans Myanmar', 'Padauk', sans-serif;
+            color: #fff;
+            line-height: 2;
+            background: linear-gradient(160deg, var(--bg1), var(--bg2) 60%, #8a2c5c);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 70px 20px;
+            text-align: center
+        }
+
+        h1 {
+            font-size: clamp(2rem, 7vw, 3.6rem);
+            line-height: 1.5;
+            text-shadow: 0 4px 30px rgba(255, 107, 139, .6)
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 5vw, 2.4rem);
+            margin-bottom: 28px;
+            color: var(--gold)
+        }
+
+        .sub {
+            font-size: 1.15rem;
+            opacity: .9;
+            margin-top: 10px
+        }
+
+        .small {
+            color: var(--soft);
+            font-size: 1.1rem;
+            margin-bottom: 10px
+        }
+
+        .card {
+            background: rgba(255, 255, 255, .09);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 22px;
+            padding: 28px;
+            max-width: 720px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .3);
+        }
+
+        .card p {
+            margin-bottom: 14px;
+            text-align: left
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            max-width: 900px;
+            width: 100%
+        }
+
+        .grid .card {
+            text-align: center
+        }
+
+        .grid .card p {
+            text-align: center
+        }
+
+        .grid .card .ico {
+            font-size: 2.2rem;
+            display: block
+        }
+
+        .list {
+            list-style: none;
+            max-width: 720px;
+            width: 100%
+        }
+
+        .list li {
+            background: rgba(255, 255, 255, .09);
+            border-left: 5px solid var(--rose);
+            padding: 14px 20px;
+            margin-bottom: 14px;
+            border-radius: 12px;
+            text-align: left
+        }
+
+        .heart-big {
+            font-size: 4rem;
+            animation: beat 1.2s infinite
+        }
+
+        @keyframes beat {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.25)
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 30px 6px 0;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 40px;
+            font-family: inherit;
+            font-size: 1.05rem;
+            color: #fff;
+            cursor: pointer;
+            background: linear-gradient(90deg, var(--rose), #ff9a6b);
+            box-shadow: 0 8px 25px rgba(255, 107, 139, .45);
+            transition: transform .2s;
+            text-decoration: none
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.04)
+        }
+
+        .btn.ghost {
+            background: transparent;
+            border: 2px solid var(--soft);
+            box-shadow: none
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%
+        }
+
+        figure {
+            background: #fff;
+            padding: 10px 10px 6px;
+            border-radius: 8px;
+            color: #4a2040;
+            transform: rotate(-2deg);
+            transition: transform .3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .4)
+        }
+
+        figure:nth-child(even) {
+            transform: rotate(2deg)
+        }
+
+        figure:hover {
+            transform: rotate(0) scale(1.04)
+        }
+
+        .slot {
+            aspect-ratio: 1/1;
+            background: #f3dbe3;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem
+        }
+
+        .slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        figcaption {
+            padding: 8px 4px;
+            font-size: 1rem;
+            line-height: 1.6
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all .9s ease
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: none
+        }
+
+        .answer {
+            margin-top: 24px;
+            font-size: 1.2rem;
+            max-width: 600px;
+            display: none
+        }
+
+        .answer.on {
+            display: block;
+            animation: pop .6s
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(.7);
+                opacity: 0
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -40px;
+            pointer-events: none;
+            z-index: 0;
+            animation: rise linear forwards;
+            opacity: .7
+        }
+
+        @keyframes rise {
+            to {
+                transform: translateY(-110vh) rotate(40deg);
+                opacity: 0
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        const CONFIG = {
+
+            // ---------- ပထမစာမျက်နှာ ----------
+            to: "ချစ်ရပါသော မမ @ Ei Thae San အတွက်",
+            title: "မောင့်ကို ခွင့်လွှတ်ပါပေးနော်၊ မမရေ",
+            subtitle: "ကျေးဇူးပြု၍ မောင်ပြောချင်တဲ့စကားလေးတွေကို နားထောင်ပေးပါနော်",
+            startBtn: "ဆက်ဖတ်မယ် ↓",
+
+            // ---------- စာ ----------
+            letterTitle: "မမ အတွက် မောင့်ရဲ့တောင်းပန်စာ🥺",
+            letter: [
+                "မောင့်အမှားတွေကြောင့် မမ စိတ်ထိခိုက်ခဲ့ရတာကို မောင်အခု အပြည့်အဝ နားလည်လာပါပြီ။ ဒီစာကို ဆင်ခြေပေးဖို့ ရေးတာမဟုတ်ပါဘူး၊ ရိုးရိုးသားသား တောင်းပန်ချင်လို့ ရေးတာပါ။",
+                "မမ မရှိတဲ့အချိန်တွေမှာ မ က မောင့်အတွက် ဘယ်လောက်အရေးကြီးလဲဆိုတာ ပိုသိလာတယ်။ မမ ရဲ့ အပြုံးတွေ၊ စကားသံတွေကို မောင်လွမ်းနေမိတယ်။",
+                "မောင့်ကို ပြန်ယုံလာဖို့ အချိန်ယူလို့ရတယ်။ မောင် စောင့်နေပါ့မယ်။",
+                "မောင် ပြောတာကို နားထောင်ပေးတဲ့အတွက် ကျေးဇူးတင်ပါတယ် ချစ်လေးရေ 💖",
+                "မောင့် ကို ခွင့်လွှတ်ပေးပါနော်",
+                "မမနဲ့ဝေးနေတဲ့အချိန်တွေမှာ ပိုသိလာရတာက မောင် မမ ကိုအရမ်းချစ်ပြီး ဘယ်လိုမှကိုအဆုံးရှုံးမခံနိုင်ဘူးဆိုတာပါ"
+            ],
+
+            // ---------- အမှားတွေ (လိုသလောက် ထပ်ထည့်/ဖြုတ်လို့ရ) ----------
+            mistakesTitle: "မောင့်အမှားတွေ",
+            mistakes: [
+                "မမကို ဂရုမစိုက်ခဲ့တာ",
+                "မ အပေါ်မှာ စိတ်မရှည်ခဲ့တာ",
+                "အချိန်မပေးနိုင်ခဲ့တာ",
+                "ပြောင်းလဲမယ်ပြောပြီး လက်တွေ့မပြောင်းလဲခဲ့တာ",
+                "မမကို နားထောင်ဖို့ မကြိုးစားခဲ့တာ"
+            ],
+
+            // ---------- ကတိတွေ ----------
+            promiseTitle: "မောင့်ရဲ့ ကတိတွေ",
+            promises: [
+                { icon: "🤝", text: "မမစကားကို ပိုနားထောင်ပါ့မယ်" },
+                { icon: "⏰", text: "မမအတွက် အချိန်ပေးမယ်၊ အရင်ထက်ပိုပြီးတော့ ကြိုးစားပါ့မယ်နော်" },
+                { icon: "🌱", text: "အရင်လိုအပြောနဲ့တင်မဟုတ်ပဲ လက်တွေ့ပြောင်းလဲပါ့မယ်နော်" }
+            ],
+
+            // ---------- ပုံတွေ ----------
+            // src မှာ ပုံဖိုင်နာမည်ထည့်ပါ။ ပုံတွေကို html ဖိုင်နဲ့ folder တူတူထားပါ
+            // ဥပမာ - "photo1.jpg" ဒါမှမဟုတ် folder ထဲမှာဆို "photos/photo1.jpg"
+            // ပုံမတွေ့ရင် 📷 ပြပေးမယ်
+            galleryTitle: "မောင်တို့ရဲ့ အမှတ်တရတွေ",
+            photos: [
+                { src: "photo1.jpg", caption: "ပထမဆုံး ဓာတ်ပုံ" },
+                { src: "photo2.jpg", caption: "ပျော်စရာနေ့တစ်နေ့" },
+                { src: "photo3.jpg", caption: "မောင်အကြိုက်ဆုံး အပြုံး" },
+                { src: "photo4.jpg", caption: "အတူသွားခဲ့တဲ့ နေရာ" },
+                { src: "photo5.jpg", caption: "မမေ့နိုင်တဲ့ အချိန်" },
+                { src: "photo6.jpg", caption: "နောက်ထပ်အမှတ်တရတွေ ဖန်တီးချင်သေးတယ်" }
+            ],
+
+            // ---------- နောက်ဆုံးမေးခွန်း ----------
+            finalQuestion: "မောင့်ဆီ ပြန်လာပေးမလား?",
+            finalSub: "မမဆုံးဖြတ်ချက်ကို မောင်လေးစားပါတယ်။",
+            yesBtn: "💖 ပြန်လာမယ်",
+            laterBtn: "🕊️ အချိန်လိုသေးတယ်",
+            yesMsg: "ကျေးဇူးတင်ပါတယ် မမရေ။ မောင့်ကို နောက်တစ်ကြိမ် အခွင့်အရေးပေးလို့ ကျေးဇူးပါ။ မမရဲ့ ရွေးချယ်မှုမမှားစေရဘူးဆိုတာကို သက်သေပြတဲ့အနေနဲ့ ပိုကြိုးစားပါမယ်နော် 💕 Telegram မှာ စာပို့လာမှာကိုစောင့်နေပါ့မယ်နော် မမ",
+            laterMsg: "အချိန်မလိုပါနဲ့တော့နော် အမြန်ဆုံးပြန်လာပေးပြီး မောင့်ကို ခွင့်လွှတ်ပေးပါနော် မမ 💖 Telegram မှာ စာပို့လာမှာကိုစောင့်နေပါ့မယ်နော် မမ"
+        };
+
+        /* =====================================================
+           အောက်ကအပိုင်းကို ပြင်စရာမလိုပါ
+           ===================================================== */
+        const C = CONFIG;
+        const app = document.getElementById('app');
+
+        function el(tag, cls, text) {
+            const e = document.createElement(tag);
+            if (cls) e.className = cls;
+            if (text !== undefined) e.textContent = text;
+            return e;
+        }
+        function section(id) {
+            const s = el('section'); if (id) s.id = id;
+            app.appendChild(s); return s;
+        }
+
+        /* 1. အစ */
+        let s = section();
+        s.append(
+            el('div', 'heart-big', '💔➡️❤️'),
+            el('p', 'small reveal', C.to),
+            el('h1', 'reveal', C.title),
+            el('p', 'sub reveal', C.subtitle)
+        );
+        let a = el('a', 'btn', C.startBtn); a.href = '#letter'; s.appendChild(a);
+
+        /* 2. စာ */
+        s = section('letter');
+        s.appendChild(el('h2', 'reveal', C.letterTitle));
+        let card = el('div', 'card reveal');
+        C.letter.forEach(t => card.appendChild(el('p', '', t)));
+        s.appendChild(card);
+
+        /* 3. အမှားတွေ */
+        s = section();
+        s.appendChild(el('h2', 'reveal', C.mistakesTitle));
+        let ul = el('ul', 'list');
+        C.mistakes.forEach(t => ul.appendChild(el('li', 'reveal', t)));
+        s.appendChild(ul);
+
+        /* 4. ကတိ */
+        s = section();
+        s.appendChild(el('h2', 'reveal', C.promiseTitle));
+        let grid = el('div', 'grid');
+        C.promises.forEach(p => {
+            const c = el('div', 'card reveal');
+            c.append(el('span', 'ico', p.icon), el('p', '', p.text));
+            grid.appendChild(c);
+        });
+        s.appendChild(grid);
+
+        /* 5. ပုံတွေ */
+        s = section();
+        s.appendChild(el('h2', 'reveal', C.galleryTitle));
+        let g = el('div', 'gallery');
+        C.photos.forEach(p => {
+            const f = el('figure', 'reveal');
+            const slot = el('div', 'slot');
+            const img = new Image();
+            img.src = p.src; img.alt = p.caption;
+            img.onerror = () => { img.remove(); slot.textContent = '📷'; };
+            slot.appendChild(img);
+            f.append(slot, el('figcaption', '', p.caption));
+            g.appendChild(f);
+        });
+        s.appendChild(g);
+
+        /* 6. နောက်ဆုံး */
+        s = section();
+        const big = el('div', 'heart-big', '🌹'); big.style.fontSize = '3.5rem';
+        s.append(big, el('h1', 'reveal', C.finalQuestion), el('p', 'sub reveal', C.finalSub));
+        const row = el('div');
+        const yesB = el('button', 'btn', C.yesBtn);
+        const laterB = el('button', 'btn ghost', C.laterBtn);
+        row.append(yesB, laterB);
+        const yesM = el('p', 'answer', C.yesMsg);
+        const laterM = el('p', 'answer', C.laterMsg);
+        s.append(row, yesM, laterM);
+
+        /* scroll reveal */
+        const io = new IntersectionObserver(es => {
+            es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+        }, { threshold: .15 });
+        document.querySelectorAll('.reveal').forEach(e => io.observe(e));
+
+        /* floating hearts */
+        const emojis = ['💗', '💕', '🌸', '💖', '🤍', '🌹', '🙇🙇🙏', '🥰', 'Love U so much! MaMa💙', 'များကြီးချစ်တယ်နော် မမရေ💖'];
+        function spawnHeart() {
+            const h = el('span', 'heart', emojis[Math.floor(Math.random() * emojis.length)]);
+            h.style.left = Math.random() * 100 + 'vw';
+            h.style.fontSize = (14 + Math.random() * 26) + 'px';
+            h.style.animationDuration = (6 + Math.random() * 6) + 's';
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 12500);
+        }
+        setInterval(spawnHeart, 900);
+
+        /* ခလုတ်တွေ */
+        yesB.onclick = () => {
+            laterM.classList.remove('on'); yesM.classList.add('on');
+            for (let i = 0; i < 40; i++) setTimeout(spawnHeart, i * 50);
+        };
+        laterB.onclick = () => {
+            yesM.classList.remove('on'); laterM.classList.add('on');
+        };
+    </script>
+</body>
+
+</html>
